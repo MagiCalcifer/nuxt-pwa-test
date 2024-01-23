@@ -539,7 +539,12 @@ onMounted( () => {
     <p>{{ accounts }}</p>
     <p>OXB BALANCE: {{ ethers.formatEther( oxb_balance) }}</p>
 
-    <button @click="installApp()">Install App</button>
+    <button @click="installApp()">Install App (Chrome / Android)</button>
+
+    <div class="w-full sm:hidden flex justify-center items-center bottom-0 fixed">
+      <img src="/phone.png" alt="">
+    </div>
+
   </div>
   </div>
 </template>
