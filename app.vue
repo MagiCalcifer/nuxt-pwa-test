@@ -72,7 +72,12 @@ const requestConnect = async () => {
 
 }
 
-const { $pwa } = useNuxtApp()
+const { $pwa, $OneSignal } = useNuxtApp()
+
+const optInNotification = async () => {
+  let result = await $OneSignal.User.PushSubscription.optIn();
+  console.log(result)
+}
 
 const installApp = () => {
   $pwa.install()
@@ -599,6 +604,12 @@ onMounted(() => {
     <button class="btn" @click="requestDisconnect()">disconnect</button>
     <button class="btn" @click="requestSign()">Sign</button>
     <button class="btn" @click="stakeOxb()">Stake</button>
+
+    <button class="btn" @click="optInNotification()">Noty</button>
+
+
+
+    
 
     <button @click="$pwa.updateServiceWorker()">
       Reload
