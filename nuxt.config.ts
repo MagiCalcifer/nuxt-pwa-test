@@ -1,6 +1,13 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
+  app:{
+    head:{
+      script:[
+        { children:'https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js',defer:true }
+      ]
+    }
+  },
   modules: ["@vite-pwa/nuxt", '@nuxtjs/tailwindcss'],
   pwa: {
     /* PWA options */
