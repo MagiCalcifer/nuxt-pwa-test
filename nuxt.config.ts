@@ -43,7 +43,5 @@ export default defineNuxtConfig({
       navigateFallbackAllowlist: [/^\/$/],
       type: 'module',
     },
-    strategies: 'injectManifest',
-    filename:'sw.js',
   }
 })
