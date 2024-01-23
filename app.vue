@@ -26,6 +26,11 @@ let walletConnectConnector = walletConnect({
   chainId: 56,
       projectId: '89745a0e2917aea684838684fa6df645',
       isNewChainsStale: false, 
+      metadata: { 
+    name: 'Oxb', 
+    description: 'oxb', 
+    url: 'https://nuxt-pwa-test-inky.vercel.app/', 
+  }, 
     })
 
 const config = createConfig({
@@ -78,11 +83,16 @@ const requestDisconnect = async () => {
   accounts.value = null
 }
 
+const signData = ref(null)
+
 const requestSign = async () => {
+  signData.value = null
   const result = await signMessage(config,{
     message:'test'
   }, walletConnectConnector)
   console.log(result)
+
+  signData.value = result
   // accounts.value = result
 }
 const oxb_balance = ref(0)
@@ -520,10 +530,37 @@ console.log(result)
 
 }
 
-onMounted( () => {
-  requestConnect()
-})
+// onMounted( async () => {
+//   requestConnect()
 
+//   // let sw = $pwa.swActivated
+//   let sw = $pwa.getSWRegistration()
+
+//   console.log(sw)
+// })
+
+const getSW = async () => {
+  let sw = $pwa.getSWRegistration()
+  let test2 = sw.pushManager.subscribe()
+  console.log(test2)
+  let test = await sw.pushManager.permissionState()
+  // let subscription = await sw.pushManager.getSubscription()
+  console.log(test)
+
+
+}
+
+
+onMounted(() => {
+
+  Notification.requestPermission().then(function(result) {
+    console.log(result);
+  });
+
+  
+  if ($pwa.offlineReady)
+    alert('App ready to work offline')
+})
 </script>
 
 <template>
@@ -535,7 +572,17 @@ onMounted( () => {
     <button class="btn" @click="requestDisconnect()">disconnect</button>
     <button class="btn" @click="requestSign()">Sign</button>
     <button class="btn" @click="stakeOxb()">Stake</button>
+
+    <button @click="$pwa.updateServiceWorker()">
+      Reload
+    </button>
+
+    <button @click="getSW()">getSW</button>
+
     </div>
+
+    <p>Sign Data: {{ signData }}</p>
+
 
 
     <div class="p-2">
@@ -545,10 +592,11 @@ onMounted( () => {
 
     <button class="btn" @click="installApp()">Install App (Chrome / Android)</button>
 
-    <div class="w-full sm:hidden flex justify-center items-center bottom-0 fixed">
+    <div class="w-full sm:hidden flex justify-center items-center bottom-0 left-0 fixed">
       <img src="/phone.png" alt="">
     </div>
 
+    
   </div>
   </div>
 </template>
