@@ -73,8 +73,10 @@ const requestConnect = async () => {
 }
 
 const { $pwa, $OneSignal } = useNuxtApp()
+// console.log(useNuxtApp())
 
 const optInNotification = async () => {
+  console.log($OneSignal)
   let result = await $OneSignal.User.PushSubscription.optIn();
   console.log(result)
 }
