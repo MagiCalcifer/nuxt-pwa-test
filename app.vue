@@ -522,8 +522,7 @@ onMounted( () => {
 
 <template>
   <div>
-    <!-- <NuxtWelcome /> -->
-
+    <NuxtPwaManifest />
     <div>
     <button @click="requestConnect()">connect</button>
     <button @click="requestDisconnect()">disconnect</button>
@@ -532,7 +531,7 @@ onMounted( () => {
 
 
     <p>{{ accounts }}</p>
-    <p>{{ oxb_balance }}</p>
+    <p>OXB BALANCE: {{ ethers.formatEther( oxb_balance) }}</p>
   </div>
   </div>
 </template>
