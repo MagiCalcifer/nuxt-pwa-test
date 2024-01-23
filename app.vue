@@ -72,14 +72,7 @@ const requestConnect = async () => {
 
 }
 
-const { $pwa, $OneSignal } = useNuxtApp()
-// console.log(useNuxtApp())
-
-const optInNotification = async () => {
-  console.log($OneSignal)
-  let result = await $OneSignal.User.PushSubscription.optIn();
-  console.log(result)
-}
+const { $pwa } = useNuxtApp()
 
 const installApp = () => {
   $pwa.install()
@@ -587,7 +580,7 @@ onMounted(() => {
 <template>
   <div class="p-8">
     <NuxtPwaManifest />
-    <!-- <Script defer src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js"></Script>
+    <Script defer src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js"></Script>
     <Script>
       window.OneSignalDeferred = window.OneSignalDeferred || [];
   OneSignalDeferred.push(function(OneSignal) {
@@ -599,19 +592,13 @@ onMounted(() => {
       },
     });
   });
-    </Script> -->
+    </Script>
     <div>
     <div class="space-x-4">
       <button class="btn" @click="requestConnect()">connect</button>
     <button class="btn" @click="requestDisconnect()">disconnect</button>
     <button class="btn" @click="requestSign()">Sign</button>
     <button class="btn" @click="stakeOxb()">Stake</button>
-
-    <button class="btn" @click="optInNotification()">Noty</button>
-
-
-
-    
 
     <button @click="$pwa.updateServiceWorker()">
       Reload
