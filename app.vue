@@ -6,7 +6,7 @@ import { createConfig, http } from '@wagmi/core'
 import { bsc } from '@wagmi/core/chains'
 import { mainnet, sepolia } from '@wagmi/core/chains'
 import { createClient } from 'viem'
-import { connect, disconnect } from '@wagmi/core'
+import { connect, disconnect, reconnect } from '@wagmi/core'
 import { injected } from '@wagmi/connectors'
 import { metaMask } from '@wagmi/connectors'
 import { walletConnect } from '@wagmi/connectors'
@@ -550,8 +550,20 @@ const getSW = async () => {
 
 }
 
+const attemptReconnect = async () => {
+  const result = await reconnect(config,{
+    connectors:[ injected(), walletConnectConnector]
+  })
+  console.log(result)
+  accounts.value = result
+}
+
+
 
 onMounted(() => {
+
+  attemptReconnect()
+
 
   // Notification.requestPermission().then(function(result) {
   //   console.log(result);
