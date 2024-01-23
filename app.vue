@@ -553,13 +553,13 @@ const getSW = async () => {
 
 onMounted(() => {
 
-  Notification.requestPermission().then(function(result) {
-    console.log(result);
-  });
+  // Notification.requestPermission().then(function(result) {
+  //   console.log(result);
+  // });
 
   
-  if ($pwa.offlineReady)
-    alert('App ready to work offline')
+  // if ($pwa.offlineReady)
+    // alert('App ready to work offline')
 })
 </script>
 
