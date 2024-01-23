@@ -86,6 +86,10 @@ const getOxbBalance = async () => {
 
   const account = getAccount(config)
 
+  if(account?.address == null) {
+    return
+  }
+
   const abi = [
   {
     type: 'function',
@@ -521,7 +525,7 @@ onMounted( () => {
     <!-- <NuxtWelcome /> -->
 
     <div>
-    <button @click="requestConnect()">request</button>
+    <button @click="requestConnect()">connect</button>
     <button @click="requestDisconnect()">disconnect</button>
     <button @click="requestSign()">Sign</button>
     <button @click="stakeOxb()">Stake</button>
