@@ -39,7 +39,6 @@ export default defineNuxtConfig({
       suppressWarnings: true,
       navigateFallbackAllowlist: [/^\/$/],
       type: 'module',
-    },
-    strategies: 'generateSW',
+    }
   }
 })
