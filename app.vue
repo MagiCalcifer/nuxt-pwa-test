@@ -527,19 +527,23 @@ onMounted( () => {
 </script>
 
 <template>
-  <div>
+  <div class="p-8">
     <NuxtPwaManifest />
     <div>
-    <button @click="requestConnect()">connect</button>
-    <button @click="requestDisconnect()">disconnect</button>
-    <button @click="requestSign()">Sign</button>
-    <button @click="stakeOxb()">Stake</button>
+    <div class="space-x-4">
+      <button class="btn" @click="requestConnect()">connect</button>
+    <button class="btn" @click="requestDisconnect()">disconnect</button>
+    <button class="btn" @click="requestSign()">Sign</button>
+    <button class="btn" @click="stakeOxb()">Stake</button>
+    </div>
 
 
-    <p>{{ accounts }}</p>
+    <div class="p-2">
+      <p>{{ accounts }}</p>
     <p>OXB BALANCE: {{ ethers.formatEther( oxb_balance) }}</p>
+    </div>
 
-    <button @click="installApp()">Install App (Chrome / Android)</button>
+    <button class="btn" @click="installApp()">Install App (Chrome / Android)</button>
 
     <div class="w-full sm:hidden flex justify-center items-center bottom-0 fixed">
       <img src="/phone.png" alt="">
