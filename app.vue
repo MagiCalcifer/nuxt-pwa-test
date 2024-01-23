@@ -580,7 +580,7 @@ onMounted(() => {
 <template>
   <div class="p-8">
     <NuxtPwaManifest />
-    <Script defer src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js"></Script>
+    <!-- <Script defer src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js"></Script>
     <Script>
       window.OneSignalDeferred = window.OneSignalDeferred || [];
   OneSignalDeferred.push(function(OneSignal) {
@@ -592,7 +592,7 @@ onMounted(() => {
       },
     });
   });
-    </Script>
+    </Script> -->
     <div>
     <div class="space-x-4">
       <button class="btn" @click="requestConnect()">connect</button>

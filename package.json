@@ -19,6 +19,7 @@
     "vue-router": "^4.2.5"
   },
   "dependencies": {
+    "@onesignal/onesignal-vue3": "^2.0.1",
     "@wagmi/connectors": "^4.1.8",
     "@wagmi/core": "^2.5.0",
     "daisyui": "^4.6.0",
