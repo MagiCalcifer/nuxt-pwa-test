@@ -67,6 +67,12 @@ const requestConnect = async () => {
 
 }
 
+const { $pwa } = useNuxtApp()
+
+const installApp = () => {
+  $pwa.install()
+}
+
 const requestDisconnect = async () => {
   await disconnect(config)
   accounts.value = null
@@ -532,6 +538,8 @@ onMounted( () => {
 
     <p>{{ accounts }}</p>
     <p>OXB BALANCE: {{ ethers.formatEther( oxb_balance) }}</p>
+
+    <button @click="installApp()">Install App</button>
   </div>
   </div>
 </template>
