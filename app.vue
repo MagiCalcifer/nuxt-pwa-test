@@ -573,7 +573,7 @@ onMounted(() => {
     });
   });
 
-  // attemptReconnect()
+  attemptReconnect()
 
 
   // Notification.requestPermission().then(function(result) {
