@@ -48,6 +48,6 @@ export default defineNuxtConfig({
       type: 'module',
     },
     strategies: 'injectManifest',
-    filename: 'my-sw.js'
+    filename: 'sw.js'
   }
 })

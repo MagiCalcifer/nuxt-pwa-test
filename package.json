@@ -17,6 +17,7 @@
     "nuxt": "^3.9.3",
     "vue": "^3.4.14",
     "vue-router": "^4.2.5",
+    "workbox-core": "^7.0.0",
     "workbox-precaching": "^7.0.0"
   },
   "dependencies": {
