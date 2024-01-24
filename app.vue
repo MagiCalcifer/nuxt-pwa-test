@@ -620,9 +620,9 @@ onMounted(() => {
 
     <button class="btn" @click="installApp()">Install App (Chrome / Android)</button>
 
-    <div class="w-full sm:hidden flex justify-center items-center bottom-0 left-0 fixed">
+    <!-- <div class="w-full sm:hidden flex justify-center items-center bottom-0 left-0 fixed">
       <img src="/phone.png" alt="">
-    </div>
+    </div> -->
 
     
   </div>
